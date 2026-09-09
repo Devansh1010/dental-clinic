@@ -1,4 +1,3 @@
-import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/home/Hero";
 import { PatientApproach } from "@/components/home/PatientApproach";
 import { DoctorPreview } from "@/components/home/DoctorPreview";
@@ -14,7 +13,6 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 export default function Home() {
   return (
     <>
-      <Header />
 
       <main>
         <Hero />

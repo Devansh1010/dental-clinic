@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Geist } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/components/layout/Header";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-display",
@@ -26,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${cormorant.variable} ${geist.variable}`}>
+        <Header />
         {children}
       </body>
     </html>

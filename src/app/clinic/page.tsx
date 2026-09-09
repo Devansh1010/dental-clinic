@@ -191,7 +191,7 @@ export default function ClinicPage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
             <div className="relative aspect-4/5 overflow-hidden bg-background">
               <Image
-                src="/images/doctor/doctor-clinic.jpg"
+                src="/images/doctor/doctor.jpg"
                 alt="Dr. [Doctor Name] at the clinic"
                 fill
                 className="object-cover"
