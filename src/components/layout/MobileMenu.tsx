@@ -65,7 +65,10 @@ export function MobileMenu({
         </nav>
 
         <div className="mt-auto border-t border-border pt-6">
-          <BookConsultationButton className="w-full rounded-md py-6" />
+          <BookConsultationButton
+            className="w-full rounded-md py-6"
+            onClick={onClose}
+          />
 
           <p className="mt-4 text-center text-xs leading-5 text-muted-foreground">
             Start with a consultation and understand your options.
