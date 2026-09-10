@@ -1,31 +1,28 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+
 import { Container } from "@/components/shared/Container";
 
 const treatments = [
   {
-    number: "01",
     problem: "Looking after your oral health?",
     title: "General Dentistry",
     description:
       "Routine dental care focused on maintaining your oral health and addressing common dental concerns.",
   },
   {
-    number: "02",
     problem: "A tooth is hurting?",
     title: "Root Canal Treatment",
     description:
       "Treatment for damaged or infected teeth, with the goal of relieving discomfort and preserving your natural tooth.",
   },
   {
-    number: "03",
     problem: "Missing a tooth?",
     title: "Dental Implants",
     description:
       "A long-term option for replacing missing teeth and restoring everyday function and appearance.",
   },
   {
-    number: "04",
     problem: "Want to improve your smile?",
     title: "Cosmetic Dentistry",
     description:
@@ -35,70 +32,77 @@ const treatments = [
 
 export function TreatmentsPreview() {
   return (
-    <section className="border-t border-border bg-muted py-24 sm:py-32 lg:py-40">
+    <section className="bg-background py-24 sm:py-28 lg:py-32">
       <Container>
-        <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end lg:gap-20">
-          <div>
-            <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-              Our Treatments
-            </p>
-
-            <h2 className="max-w-3xl font-(--font-display) text-4xl leading-[0.95] tracking-[-0.02em] text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
-              Care for Your Smile, From Prevention to Restoration.
+        {/* Introduction */}
+        <div className="flex justify-between items-end">
+          <div className="max-w-3xl">
+            <h2 className="font-(--font-display) text-4xl leading-none tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              Care for your smile, from prevention to restoration.
             </h2>
+
+            <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+              Whether you&apos;re dealing with a dental concern or
+              looking to improve your smile, we&apos;ll help you
+              understand the right options for your needs.
+            </p>
           </div>
 
-          <p className="max-w-lg text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8 lg:pb-1">
-            Whether you&apos;re dealing with a dental concern or looking to improve
-            your smile, we&apos;ll help you understand the right options for your
-            needs.
-          </p>
+          {/* All treatments */}
+          <div className="mt-8">
+            <Link
+              href="/treatments"
+              className="group inline-flex items-center gap-2 text-sm font-medium text-foreground"
+            >
+              View all treatments
+
+              <ArrowUpRight
+                className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                strokeWidth={1.5}
+              />
+            </Link>
+          </div>
         </div>
 
-        <div className="mt-16 border-t border-border lg:mt-24">
+        {/* Treatments */}
+        <div className="mt-14 grid gap-px overflow-hidden bg-border border border-border md:grid-cols-2">
           {treatments.map((treatment) => (
             <Link
-              key={treatment.number}
+              key={treatment.title}
               href="/treatments"
-              className="group grid gap-5 border-b border-border py-8 transition-colors duration-300 hover:bg-background/50 sm:grid-cols-[64px_1fr_auto] sm:items-center sm:gap-8 sm:py-10"
+              className="group bg-background p-7 transition-colors duration-300 hover:bg-muted sm:p-9 lg:p-10"
             >
-              <span className="text-[10px] font-medium tracking-[0.18em] text-primary">
-                {treatment.number}
-              </span>
-
-              <div>
-                <p className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
+              <div className="flex items-start justify-between gap-6">
+                <p className="text-sm text-muted-foreground">
                   {treatment.problem}
                 </p>
 
-                <h3 className="mt-2 font-(--font-display) text-2xl tracking-[-0.015em] text-foreground transition-transform duration-300 group-hover:translate-x-1 sm:text-3xl">
-                  {treatment.title}
-                </h3>
-
-                <p className="mt-2 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">
-                  {treatment.description}
-                </p>
+                <ArrowUpRight
+                  className="size-4 shrink-0 text-muted-foreground transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground"
+                  strokeWidth={1.5}
+                />
               </div>
 
-              <span className="hidden size-10 items-center justify-center border border-border transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground sm:flex">
-                <ArrowUpRight className="size-4" strokeWidth={1.5} />
+              <h3 className="mt-10 text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+                {treatment.title}
+              </h3>
+
+              <p className="mt-3 max-w-md text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
+                {treatment.description}
+              </p>
+
+              <span className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-foreground">
+                Explore treatment
+                <ArrowUpRight
+                  className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  strokeWidth={1.5}
+                />
               </span>
             </Link>
           ))}
         </div>
 
-        <div className="mt-8 flex justify-end">
-          <Link
-            href="/treatments"
-            className="group inline-flex items-center gap-2 text-sm font-medium text-foreground"
-          >
-            View all treatments
-            <ArrowUpRight
-              className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              strokeWidth={1.5}
-            />
-          </Link>
-        </div>
+
       </Container>
     </section>
   );

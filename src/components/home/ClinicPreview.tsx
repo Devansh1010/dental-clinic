@@ -1,67 +1,91 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+
 import { Container } from "@/components/shared/Container";
 
 export function ClinicPreview() {
   return (
-    <section className="border-t border-border bg-background py-24 sm:py-32 lg:py-40">
+    <section className="bg-muted py-24 sm:py-28 lg:py-32">
       <Container>
-        {/* Heading */}
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        {/* Intro */}
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
           <div>
-            <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-              The Clinic
-            </p>
-
-            <h2 className="max-w-3xl font-(--font-display) text-4xl leading-[0.95] tracking-[-0.02em] text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
-              A Space Designed Around Your Comfort.
+            <h2 className="max-w-2xl font-(--font-display) text-4xl leading-none tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              A calm, modern space for your dental care.
             </h2>
           </div>
 
-          <p className="max-w-md text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8 lg:pb-1">
-            A modern dental environment in Bopal, Ahmedabad, designed to make
-            your visit feel considered from the moment you arrive.
-          </p>
+          <div className="flex items-end">
+            <p className="max-w-lg text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+              From the reception area to the treatment room, the clinic is
+              designed to provide a clean, comfortable environment for every
+              visit.
+            </p>
+          </div>
         </div>
 
         {/* Images */}
-        <div className="mt-14 grid gap-4 sm:mt-20 lg:grid-cols-[1.5fr_1fr] lg:gap-6">
-          {/* Main Image */}
-          <div className="relative aspect-4/3 overflow-hidden bg-muted lg:aspect-auto lg:h-155">
+        <div className="mt-14 grid gap-4 sm:mt-16 lg:grid-cols-[1.45fr_0.85fr] lg:gap-5">
+          {/* Main image */}
+          <div className="relative aspect-4/3 overflow-hidden bg-background lg:aspect-1.25/1">
             <Image
               src="/images/clinic/reception.jpg"
-              alt="Reception area of the dental clinic"
+              alt="Reception area of the dental clinic in Bopal, Ahmedabad"
               fill
-              className="object-cover transition-transform duration-700 hover:scale-[1.02]"
-              sizes="(max-width: 1024px) 100vw, 60vw"
+              className="object-cover"
+              sizes="(max-width: 1024px) 80vw, 65vw"
             />
           </div>
 
-          {/* Secondary Image */}
-          <div className="relative aspect-4/3 overflow-hidden bg-muted lg:h-155 lg:aspect-auto">
+          {/* Secondary image */}
+          <div className="relative aspect-4/3 overflow-hidden bg-background lg:aspect-auto">
             <Image
               src="/images/clinic/treatment-room.jpg"
-              alt="Treatment room at the dental clinic"
+              alt="Dental treatment room at the clinic"
               fill
-              className="object-cover transition-transform duration-700 hover:scale-[1.02]"
-              sizes="(max-width: 1024px) 40vw, 35vw"
+              className="object-cover"
+              sizes="(max-width: 1024px) 80vw, 35vw"
             />
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="mt-6 flex flex-col gap-5 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-xl text-sm leading-6 text-muted-foreground">
-            Explore the clinic, treatment spaces, and practical information
-            about visiting us.
-          </p>
+        {/* Supporting information */}
+        <div className="mt-8 grid gap-8 border-t border-border pt-8 sm:grid-cols-[1fr_auto] sm:items-start">
+          <div className="grid gap-6 sm:grid-cols-3 sm:gap-10">
+            <div>
+              <p className="text-sm font-medium text-foreground">
+                Modern environment
+              </p>
+              <p className="mt-2 max-w-xs text-sm leading-6 text-muted-foreground">
+                A clean and thoughtfully arranged clinical setting.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-sm font-medium text-foreground">
+                Patient-focused care
+              </p>
+              <p className="mt-2 max-w-xs text-sm leading-6 text-muted-foreground">
+                Time to understand your concerns before treatment.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-sm font-medium text-foreground">
+                Bopal, Ahmedabad
+              </p>
+              <p className="mt-2 max-w-xs text-sm leading-6 text-muted-foreground">
+                Conveniently located for patients in and around Bopal.
+              </p>
+            </div>
+          </div>
 
           <Link
             href="/clinic"
             className="group inline-flex shrink-0 items-center gap-2 text-sm font-medium text-foreground"
           >
-            Explore the Clinic
+            Visit the Clinic
             <ArrowUpRight
               className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               strokeWidth={1.5}

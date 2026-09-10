@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -7,37 +8,16 @@ import { BookConsultationButton } from "@/components/shared/Button";
 
 const professionalDetails = [
   {
-    value: "7+",
-    label: "Years Experience",
+    label: "Experience",
+    value: "7+ years",
   },
   {
-    value: "[BDS / MDS]",
     label: "Qualification",
+    value: "[BDS / MDS]",
   },
   {
+    label: "Practice",
     value: "[Specialization]",
-    label: "Area of Practice",
-  },
-];
-
-const approachPoints = [
-  {
-    number: "01",
-    title: "Listen First",
-    description:
-      "We begin by understanding what brought you in, what concerns you most, and what you hope to achieve.",
-  },
-  {
-    number: "02",
-    title: "Explain Clearly",
-    description:
-      "Your dental health, treatment options, and what to expect are explained in straightforward terms.",
-  },
-  {
-    number: "03",
-    title: "Treat Thoughtfully",
-    description:
-      "Treatment recommendations are shaped around your dental needs, priorities, and comfort.",
   },
 ];
 
@@ -46,43 +26,63 @@ const professionalJourney = [
     year: "[YEAR]",
     title: "Dental Education",
     description:
-      "[Add the dentist's qualification, institution, and graduation details.]",
+      "[Add the dentist's dental education, institution, and qualification.]",
   },
   {
     year: "[YEAR]",
     title: "Professional Experience",
     description:
-      "[Add relevant clinical experience, previous practices, hospitals, or professional roles.]",
+      "[Add relevant clinical experience, previous practices, hospitals, or roles.]",
   },
   {
     year: "[YEAR]",
     title: "Advanced Training",
     description:
-      "[Add relevant certifications, courses, workshops, or specialized training.]",
+      "[Add relevant certifications, courses, or advanced clinical training.]",
+  },
+];
+
+const approachPoints = [
+  {
+    title: "Listen",
+    description:
+      "We begin by understanding what brought you in, what concerns you most, and what you hope to achieve.",
   },
   {
-    year: "[CURRENT]",
-    title: "Current Practice",
+    title: "Explain",
     description:
-      "Providing personalized dental care to patients at the clinic in Bopal, Ahmedabad.",
+      "We explain what we find and discuss the available options clearly before moving forward.",
   },
+  {
+    title: "Treat",
+    description:
+      "Your treatment plan is shaped around your dental needs, priorities, and comfort.",
+  },
+];
+
+const treatments = [
+  "General Dentistry",
+  "Root Canal Treatment",
+  "Dental Implants",
+  "Cosmetic Dentistry",
 ];
 
 export default function DoctorPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-background pb-24 pt-32 sm:pb-32 sm:pt-40 lg:pb-40 lg:pt-44">
+      <section className="bg-background pb-20 pt-32 sm:pb-24 sm:pt-36 lg:pb-28 lg:pt-40">
         <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
-            <div>
-              <p className="mb-6 flex items-center gap-4 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-                <span className="h-px w-10 bg-primary" />
+          <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.8fr] lg:gap-20 xl:grid-cols-[1.05fr_0.75fr]">
+            <div className="max-w-2xl">
+              <p className="mb-6 text-sm font-medium text-primary">
                 Meet the Dentist
               </p>
 
-              <h1 className="max-w-2xl font-(--font-display) text-5xl leading-[0.9] tracking-[-0.035em] text-foreground sm:text-6xl md:text-7xl lg:text-[5rem]">
-                Experienced Care Begins With Understanding.
+              <h1 className="max-w-2xl font-(--font-display) text-5xl leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
+                Experienced care,
+                <br />
+                grounded in understanding.
               </h1>
 
               <p className="mt-7 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
@@ -97,40 +97,41 @@ export default function DoctorPage() {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="relative aspect-4/5 overflow-hidden bg-muted">
+            <div className="lg:justify-self-end">
+              <div className="relative aspect-3/4 w-full max-w-sm overflow-hidden bg-muted">
                 <Image
                   src="/images/doctor/doctor.jpg"
                   alt="Dr. [Doctor Name]"
                   fill
                   priority
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  sizes="(max-width: 1024px) 100vw, 400px"
                 />
               </div>
-
-              <div className="absolute -bottom-6 -right-6 hidden size-24 border border-border bg-background lg:block" />
             </div>
           </div>
         </Container>
       </section>
 
       {/* Professional Details */}
-      <section className="border-t border-border bg-muted py-20 sm:py-24 lg:py-28">
+      <section className="border-y border-border bg-muted">
         <Container>
-          <div className="grid md:grid-cols-3 md:divide-x md:divide-border">
-            {professionalDetails.map((detail) => (
+          <div className="grid md:grid-cols-3">
+            {professionalDetails.map((detail, index) => (
               <div
                 key={detail.label}
-                className="border-b border-border py-7 last:border-b-0 md:border-b-0 md:px-10 md:py-4 first:md:pl-0 last:md:pr-0"
+                className={`py-7 md:py-8 ${index > 0 ? "border-t border-border md:border-l md:border-t-0" : ""
+                  }`}
               >
-                <p className="font-(--font-display) text-3xl tracking-[-0.02em] text-foreground sm:text-4xl">
-                  {detail.value}
-                </p>
+                <div className="px-0 md:px-8">
+                  <p className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
+                    {detail.label}
+                  </p>
 
-                <p className="mt-2 text-[10px] font-medium uppercase tracking-[0.15em] text-muted-foreground">
-                  {detail.label}
-                </p>
+                  <p className="mt-3 text-lg font-medium tracking-tight text-foreground">
+                    {detail.value}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -138,16 +139,16 @@ export default function DoctorPage() {
       </section>
 
       {/* Professional Background */}
-      <section className="border-t border-border bg-background py-24 sm:py-32 lg:py-40">
+      <section className="bg-background py-24 sm:py-28 lg:py-32">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
             <div>
-              <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
+              <p className="text-sm font-medium text-primary">
                 Professional Background
               </p>
 
-              <h2 className="max-w-xl font-(--font-display) text-4xl leading-[0.95] tracking-[-0.02em] text-foreground sm:text-5xl lg:text-6xl">
-                A Career Built Around Dental Care.
+              <h2 className="mt-4 max-w-md font-(--font-display) text-4xl leading-[0.98] tracking-[-0.02em] text-foreground sm:text-5xl">
+                A career built around thoughtful dental care.
               </h2>
             </div>
 
@@ -158,22 +159,22 @@ export default function DoctorPage() {
                 expertise, and the journey that led to the current practice.]
               </p>
 
-              <div className="mt-14 border-t border-border">
+              <div className="mt-12">
                 {professionalJourney.map((item) => (
                   <div
                     key={`${item.year}-${item.title}`}
-                    className="grid gap-4 border-b border-border py-8 sm:grid-cols-[100px_1fr] sm:gap-8"
+                    className="grid gap-3 border-t border-border py-6 sm:grid-cols-[90px_1fr] sm:gap-8"
                   >
-                    <span className="text-[10px] font-medium tracking-[0.18em] text-primary">
+                    <span className="text-xs font-medium text-muted-foreground">
                       {item.year}
                     </span>
 
                     <div>
-                      <h3 className="font-(--font-display) text-2xl tracking-[-0.015em] text-foreground sm:text-3xl">
+                      <h3 className="text-base font-medium text-foreground sm:text-lg">
                         {item.title}
                       </h3>
 
-                      <p className="mt-3 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
+                      <p className="mt-2 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
                         {item.description}
                       </p>
                     </div>
@@ -185,210 +186,118 @@ export default function DoctorPage() {
         </Container>
       </section>
 
-      {/* Areas of Practice */}
-      <section className="border-t border-border bg-muted py-24 sm:py-32 lg:py-40">
+      {/* Patient Care Approach */}
+      <section className="bg-muted py-24 sm:py-28 lg:py-32">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
+          <div className="max-w-2xl">
+            <p className="text-sm font-medium text-primary">
+              Approach to Care
+            </p>
+
+            <h2 className="mt-4 font-(--font-display) text-4xl leading-[0.98] tracking-[-0.02em] text-foreground sm:text-5xl lg:text-6xl">
+              Care that begins with listening.
+            </h2>
+
+            <p className="mt-6 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+              Good dental care is not only about treatment. It is also about
+              understanding your concerns, explaining your options, and
+              helping you feel comfortable with the decisions you make.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-8 border-t border-border pt-8 md:grid-cols-3 md:gap-10">
+            {approachPoints.map((point) => (
+              <div key={point.title}>
+                <h3 className="text-lg font-medium tracking-tight text-foreground">
+                  {point.title}
+                </h3>
+
+                <p className="mt-3 max-w-sm text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
+                  {point.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Areas of Practice */}
+      <section className="bg-background py-24 sm:py-28 lg:py-32">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
             <div>
-              <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
+              <p className="text-sm font-medium text-primary">
                 Areas of Practice
               </p>
 
-              <h2 className="max-w-xl font-(--font-display) text-4xl leading-[0.95] tracking-[-0.02em] text-foreground sm:text-5xl lg:text-6xl">
-                Care for Different Dental Needs.
+              <h2 className="mt-4 max-w-md font-(--font-display) text-4xl leading-[0.98] tracking-[-0.02em] text-foreground sm:text-5xl">
+                Care for different dental needs.
               </h2>
             </div>
 
             <div>
               <p className="max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-                Explore the treatments and areas of dentistry available at the
-                clinic, from routine dental care to restorative and cosmetic
-                treatments.
+                Explore the treatments available at the clinic, from routine
+                dental care to restorative and cosmetic treatments.
               </p>
 
-              <div className="mt-12 border-t border-border">
-                <Link
-                  href="/treatments"
-                  className="group flex items-center justify-between gap-6 border-b border-border py-7"
-                >
-                  <div>
-                    <span className="text-[10px] font-medium tracking-[0.18em] text-primary">
-                      01
+              <div className="mt-10">
+                {treatments.map((treatment) => (
+                  <Link
+                    key={treatment}
+                    href="/treatments"
+                    className="group flex items-center justify-between border-t border-border py-5 last:border-b"
+                  >
+                    <span className="text-base font-medium text-foreground sm:text-lg">
+                      {treatment}
                     </span>
 
-                    <h3 className="mt-2 font-(--font-display) text-2xl text-foreground sm:text-3xl">
-                      General Dentistry
-                    </h3>
-                  </div>
-
-                  <ArrowUpRight
-                    className="size-5 shrink-0 text-foreground transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    strokeWidth={1.5}
-                  />
-                </Link>
-
-                <Link
-                  href="/treatments"
-                  className="group flex items-center justify-between gap-6 border-b border-border py-7"
-                >
-                  <div>
-                    <span className="text-[10px] font-medium tracking-[0.18em] text-primary">
-                      02
-                    </span>
-
-                    <h3 className="mt-2 font-(--font-display) text-2xl text-foreground sm:text-3xl">
-                      Root Canal Treatment
-                    </h3>
-                  </div>
-
-                  <ArrowUpRight
-                    className="size-5 shrink-0 text-foreground transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    strokeWidth={1.5}
-                  />
-                </Link>
-
-                <Link
-                  href="/treatments"
-                  className="group flex items-center justify-between gap-6 border-b border-border py-7"
-                >
-                  <div>
-                    <span className="text-[10px] font-medium tracking-[0.18em] text-primary">
-                      03
-                    </span>
-
-                    <h3 className="mt-2 font-(--font-display) text-2xl text-foreground sm:text-3xl">
-                      Dental Implants
-                    </h3>
-                  </div>
-
-                  <ArrowUpRight
-                    className="size-5 shrink-0 text-foreground transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    strokeWidth={1.5}
-                  />
-                </Link>
-
-                <Link
-                  href="/treatments"
-                  className="group flex items-center justify-between gap-6 border-b border-border py-7"
-                >
-                  <div>
-                    <span className="text-[10px] font-medium tracking-[0.18em] text-primary">
-                      04
-                    </span>
-
-                    <h3 className="mt-2 font-(--font-display) text-2xl text-foreground sm:text-3xl">
-                      Cosmetic Dentistry
-                    </h3>
-                  </div>
-
-                  <ArrowUpRight
-                    className="size-5 shrink-0 text-foreground transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    strokeWidth={1.5}
-                  />
-                </Link>
+                    <ArrowUpRight
+                      className="size-4 text-muted-foreground transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
+                      strokeWidth={1.5}
+                    />
+                  </Link>
+                ))}
               </div>
-
-              <Link
-                href="/treatments"
-                className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground"
-              >
-                Explore all treatments
-
-                <ArrowUpRight
-                  className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  strokeWidth={1.5}
-                />
-              </Link>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Patient Care Approach */}
-      <section className="border-t border-border bg-background py-24 sm:py-32 lg:py-40">
+      {/* Clinic */}
+      <section className="bg-muted py-24 sm:py-28 lg:py-32">
         <Container>
-          <div className="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24">
-            <div>
-              <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-                Patient Care
-              </p>
-
-              <h2 className="max-w-3xl font-(--font-display) text-4xl leading-[0.95] tracking-[-0.02em] text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
-                The Treatment Is Important. So Is How You Experience It.
-              </h2>
-            </div>
-
-            <div className="flex items-end">
-              <p className="max-w-lg text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8 lg:pb-2">
-                Good dental care starts with understanding. The goal is to
-                create an environment where you can ask questions, understand
-                your options, and feel comfortable making decisions about your
-                care.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-20 border-t border-border lg:mt-28">
-            <div className="grid md:grid-cols-3 md:divide-x md:divide-border">
-              {approachPoints.map((point) => (
-                <div
-                  key={point.number}
-                  className="border-b border-border py-8 last:border-b-0 md:border-b-0 md:px-8 md:py-10 first:md:pl-0 last:md:pr-0 lg:px-10"
-                >
-                  <span className="text-[10px] font-medium tracking-[0.18em] text-primary">
-                    {point.number}
-                  </span>
-
-                  <h3 className="mt-6 font-(--font-display) text-2xl tracking-[-0.015em] text-foreground sm:text-3xl">
-                    {point.title}
-                  </h3>
-
-                  <p className="mt-3 max-w-sm text-sm leading-6 text-muted-foreground sm:text-base">
-                    {point.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Clinic Connection */}
-      <section className="border-t border-border bg-muted py-24 sm:py-32 lg:py-40">
-        <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
             <div className="relative aspect-4/3 overflow-hidden bg-background">
               <Image
                 src="/images/clinic/treatment-room.jpg"
                 alt="Treatment room at the dental clinic"
                 fill
                 className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 55vw"
+                sizes="(max-width: 1024px) 100vw, 65vw"
               />
             </div>
 
-            <div>
-              <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-                The Clinic
-              </p>
+            <div className="max-w-md">
+              <p className="text-sm font-medium text-primary">The Clinic</p>
 
-              <h2 className="max-w-xl font-(--font-display) text-4xl leading-[0.95] tracking-[-0.02em] text-foreground sm:text-5xl lg:text-6xl">
-                A Modern Space for Thoughtful Care.
+              <h2 className="mt-4 font-(--font-display) text-4xl leading-[0.98] tracking-[-0.02em] text-foreground sm:text-5xl">
+                A calm environment for your care.
               </h2>
 
-              <p className="mt-7 max-w-lg text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+              <p className="mt-6 text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
                 Visit the clinic in Bopal, Ahmedabad and learn more about the
                 environment where your care takes place.
               </p>
 
               <Link
                 href="/clinic"
-                className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground"
+                className="group mt-7 inline-flex items-center gap-2 text-sm font-medium text-foreground"
               >
                 Explore the Clinic
 
                 <ArrowUpRight
-                  className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  className="size-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   strokeWidth={1.5}
                 />
               </Link>
@@ -398,25 +307,21 @@ export default function DoctorPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-border bg-primary py-24 sm:py-32 lg:py-40">
+      <section className="bg-primary py-20 sm:py-24 lg:py-28">
         <Container>
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.2em] text-primary-foreground/70">
-              Begin With a Consultation
-            </p>
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+            <div className="max-w-2xl">
+              <h2 className="font-(--font-display) text-4xl leading-[0.98] tracking-[-0.02em] text-primary-foreground sm:text-5xl lg:text-6xl">
+                Have a dental concern?
+              </h2>
 
-            <h2 className="font-(--font-display) text-5xl leading-[0.92] tracking-tight text-primary-foreground sm:text-6xl lg:text-7xl">
-              Let&apos;s Talk About Your Dental Health.
-            </h2>
-
-            <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-primary-foreground/75 sm:text-lg sm:leading-8">
-              Have a concern or considering treatment? Start with a
-              conversation and understand what may be right for you.
-            </p>
-
-            <div className="mt-9 flex justify-center">
-              <BookConsultationButton className="rounded-md bg-background px-6 py-6 text-foreground hover:bg-background/90" />
+              <p className="mt-4 max-w-xl text-base leading-7 text-primary-foreground/75 sm:text-lg">
+                Start with a consultation and understand what may be right
+                for you.
+              </p>
             </div>
+
+            <BookConsultationButton className="shrink-0 rounded-md bg-background px-5 py-6 text-foreground hover:bg-background/90" />
           </div>
         </Container>
       </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+
 import {
   Sheet,
   SheetContent,
@@ -27,52 +28,50 @@ export function MobileMenu({
   navigation,
 }: MobileMenuProps) {
   return (
-
-    <Sheet open={open} onOpenChange={(value) => !value && onClose()}>
+    <Sheet
+      open={open}
+      onOpenChange={(value) => !value && onClose()}
+    >
       <SheetContent
         side="right"
-        className="w-full max-w-sm border-border bg-background px-6 sm:px-8"
+        className="flex w-full max-w-sm flex-col border-border bg-background px-6 sm:px-8"
       >
-        <SheetHeader>
-          <SheetTitle className="text-left">
-            <span className="font-(--font-display) text-2xl">
+        <SheetHeader className="text-left">
+          <SheetTitle className="flex items-baseline">
+            <span className="font-(--font-display) text-2xl tracking-[-0.02em] text-foreground">
               Dental
             </span>
 
-            <span className="ml-2 text-[9px] font-(--font-body) uppercase tracking-[0.25em] text-(--text-secondary)">
+            <span className="ml-2 text-[9px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
               Clinic
             </span>
           </SheetTitle>
         </SheetHeader>
 
-        <nav className="mt-20 flex flex-col" aria-label="Mobile navigation">
-          {navigation.map((item, index) => (
+        <nav
+          className="mt-12 flex flex-col"
+          aria-label="Mobile navigation"
+        >
+          {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={onClose}
-              className="border-b border-border py-5 font-(--font-display) text-3xl text-(--text-primary)"
+              className="border-b border-border py-5 text-base font-medium text-foreground transition-colors hover:text-primary"
             >
-              <span className="mr-4 text-xs font-(--font-body) text-(--text-secondary)">
-                0{index + 1}
-              </span>
-
               {item.label}
             </Link>
           ))}
         </nav>
 
-        {/* CTA */}
-        <div className="mt-auto">
-          <BookConsultationButton className="rounded-md px-5 py-6" />
+        <div className="mt-auto border-t border-border pt-6">
+          <BookConsultationButton className="w-full rounded-md py-6" />
 
-
-          <p className="mt-5 text-center text-xs leading-5 text-(--text-secondary)">
-            Have a question? We are here to help.
+          <p className="mt-4 text-center text-xs leading-5 text-muted-foreground">
+            Start with a consultation and understand your options.
           </p>
         </div>
       </SheetContent>
     </Sheet>
-
   );
 }

@@ -3,50 +3,45 @@ import Link from "next/link";
 import { ArrowUpRight, MapPin } from "lucide-react";
 
 import { Container } from "@/components/shared/Container";
-import { BookConsultationButton } from "@/components/shared/Button";
+
+import { FinalCTA } from "@/components/home/FinalCTA";
 
 const spaces = [
   {
-    number: "01",
     title: "Reception",
     description:
       "A welcoming first point of contact, designed to make your arrival feel calm and straightforward.",
     image: "/images/clinic/reception.jpg",
   },
   {
-    number: "02",
     title: "Treatment Room",
     description:
       "A dedicated clinical environment where your dental care takes place.",
     image: "/images/clinic/treatment-room.jpg",
   },
   {
-    number: "03",
     title: "The Clinic",
     description:
-      "A modern dental setting designed around the experience of patients and the work of the clinical team.",
+      "A modern dental setting designed around the needs of patients and the clinical team.",
     image: "/images/clinic/clinic-wide.jpg",
   },
 ];
 
 const clinicDetails = [
   {
-    number: "01",
-    title: "A considered environment",
+    title: "Comfortable from the start",
     description:
-      "From the moment you arrive, the clinic is designed to provide a clear and comfortable experience.",
+      "From arrival through consultation and treatment, the environment is designed to feel clear, calm, and welcoming.",
   },
   {
-    number: "02",
-    title: "A professional clinical setting",
+    title: "Focused on clinical care",
     description:
-      "Treatment takes place in a dedicated dental environment where clinical care remains the priority.",
+      "Treatment takes place in a dedicated dental setting where your care and comfort remain the priority.",
   },
   {
-    number: "03",
-    title: "A space for conversation",
+    title: "Time to understand",
     description:
-      "Your consultation is an opportunity to discuss your concerns, understand your options, and ask questions.",
+      "Your consultation gives you the opportunity to discuss your concerns, understand your options, and ask questions.",
   },
 ];
 
@@ -54,37 +49,30 @@ export default function ClinicPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-background pb-24 pt-32 sm:pb-32 sm:pt-40 lg:pb-40 lg:pt-44">
+      <section className="bg-background pb-20 pt-32 sm:pb-24 sm:pt-40 lg:pb-28 lg:pt-44">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[1fr_0.75fr] lg:items-end lg:gap-24">
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-20">
             <div>
-              <p className="mb-6 flex items-center gap-4 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-                <span className="h-px w-10 bg-primary" />
-                The Clinic
-              </p>
-
-              <h1 className="max-w-4xl font-(--font-display) text-5xl leading-[0.9] tracking-[-0.035em] text-foreground sm:text-6xl md:text-7xl lg:text-[5rem]">
-                A Space Designed
-                <br />
-                Around Your Comfort.
+              <h1 className="max-w-3xl font-(--font-display) text-5xl leading-[0.95] tracking-[-0.03em] text-foreground sm:text-6xl lg:text-7xl">
+                A calm, modern space for your dental care.
               </h1>
             </div>
 
-            <p className="max-w-lg text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8 lg:pb-2">
-              A modern dental environment in Bopal, Ahmedabad, created to make
-              your visit feel considered from the moment you arrive.
+            <p className="max-w-lg text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+              Take a closer look at the clinic in Bopal, Ahmedabad, from the
+              spaces where you arrive to where your treatment takes place.
             </p>
           </div>
         </Container>
       </section>
 
       {/* Featured Image */}
-      <section className="bg-background pb-24 sm:pb-32 lg:pb-40">
+      <section className="bg-background pb-24 sm:pb-28 lg:pb-32">
         <Container>
-          <div className="relative aspect-16/8 overflow-hidden bg-muted">
+          <div className="relative aspect-16/8 max-h-155 overflow-hidden bg-muted">
             <Image
               src="/images/clinic/clinic-wide.jpg"
-              alt="Interior of the dental clinic"
+              alt="Interior of the dental clinic in Bopal, Ahmedabad"
               fill
               priority
               className="object-cover"
@@ -95,47 +83,40 @@ export default function ClinicPage() {
       </section>
 
       {/* Spaces */}
-      <section className="border-t border-border bg-muted py-24 sm:py-32 lg:py-40">
+      <section className="bg-muted py-24 sm:py-28 lg:py-32">
         <Container>
-          <div className="mb-14 max-w-3xl sm:mb-20">
-            <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-              Inside the Clinic
-            </p>
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+            <div>
+              <h2 className="max-w-xl font-(--font-display) text-4xl leading-none tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                Designed for the experience of care.
+              </h2>
+            </div>
 
-            <h2 className="font-(--font-display) text-4xl leading-[0.95] tracking-[-0.02em] text-foreground sm:text-5xl lg:text-6xl">
-              See Where Your Care Happens.
-            </h2>
+            <p className="max-w-lg text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+              Every part of the clinic has a role in making your visit feel
+              comfortable, clear, and professional.
+            </p>
           </div>
 
-          <div className="grid gap-16 lg:grid-cols-3 lg:gap-8">
+          <div className="mt-14 grid gap-10 sm:mt-16 lg:grid-cols-3 lg:gap-6">
             {spaces.map((space) => (
-              <article key={space.number}>
-                <div className="relative aspect-4/5 overflow-hidden bg-background">
+              <article key={space.title}>
+                <div className="relative aspect-4/3 overflow-hidden bg-background">
                   <Image
                     src={space.image}
                     alt={`${space.title} at the dental clinic`}
                     fill
-                    className="object-cover transition-transform duration-700 hover:scale-[1.02]"
+                    className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 33vw"
                   />
                 </div>
 
-                <div className="mt-6">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-medium tracking-[0.18em] text-primary">
-                      {space.number}
-                    </span>
-
-                    <span className="text-[10px] font-medium uppercase tracking-[0.15em] text-muted-foreground">
-                      The Clinic
-                    </span>
-                  </div>
-
-                  <h3 className="mt-4 font-(--font-display) text-3xl tracking-[-0.02em] text-foreground">
+                <div className="mt-5">
+                  <h3 className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
                     {space.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
+                  <p className="mt-2 max-w-sm text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
                     {space.description}
                   </p>
                 </div>
@@ -146,38 +127,28 @@ export default function ClinicPage() {
       </section>
 
       {/* Experience */}
-      <section className="border-t border-border bg-background py-24 sm:py-32 lg:py-40">
+      <section className="bg-background py-24 sm:py-28 lg:py-32">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-24">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <div>
-              <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-                The Experience
-              </p>
-
-              <h2 className="max-w-xl font-(--font-display) text-4xl leading-[0.95] tracking-[-0.02em] text-foreground sm:text-5xl lg:text-6xl">
-                Thoughtful Care Extends Beyond the Treatment Room.
+              <h2 className="max-w-xl font-(--font-display) text-4xl leading-none tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                Good dental care starts with feeling comfortable.
               </h2>
             </div>
 
             <div className="border-t border-border">
               {clinicDetails.map((detail) => (
                 <div
-                  key={detail.number}
-                  className="grid gap-4 border-b border-border py-8 sm:grid-cols-[56px_1fr] sm:gap-8 sm:py-10"
+                  key={detail.title}
+                  className="border-b border-border py-7 sm:py-8"
                 >
-                  <span className="text-[10px] font-medium tracking-[0.18em] text-primary">
-                    {detail.number}
-                  </span>
+                  <h3 className="text-base font-semibold tracking-tight text-foreground sm:text-lg">
+                    {detail.title}
+                  </h3>
 
-                  <div>
-                    <h3 className="font-(--font-display) text-2xl tracking-[-0.015em] text-foreground sm:text-3xl">
-                      {detail.title}
-                    </h3>
-
-                    <p className="mt-3 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
-                      {detail.description}
-                    </p>
-                  </div>
+                  <p className="mt-2 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
+                    {detail.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -185,38 +156,34 @@ export default function ClinicPage() {
         </Container>
       </section>
 
-      {/* Clinic + Doctor */}
-      <section className="border-t border-border bg-muted py-24 sm:py-32 lg:py-40">
+      {/* Doctor */}
+      <section className="bg-muted py-24 sm:py-28 lg:py-32">
         <Container>
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
-            <div className="relative aspect-4/5 overflow-hidden bg-background">
+            <div className="relative aspect-4/5 max-w-lg overflow-hidden bg-background">
               <Image
                 src="/images/doctor/doctor.jpg"
-                alt="Dr. [Doctor Name] at the clinic"
+                alt="Dr. [Doctor Name] at the dental clinic"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
 
-            <div>
-              <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-                Meet Your Dentist
-              </p>
-
-              <h2 className="max-w-xl font-(--font-display) text-4xl leading-[0.95] tracking-[-0.02em] text-foreground sm:text-5xl lg:text-6xl">
-                Experienced Care, In a Modern Setting.
+            <div className="max-w-xl">
+              <h2 className="font-(--font-display) text-4xl leading-none tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                Experienced care, in a modern setting.
               </h2>
 
-              <p className="mt-7 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-                The clinic brings together an experienced dentist and a modern
-                clinical environment, with an approach that begins by
-                understanding each patient&apos;s individual needs.
+              <p className="mt-6 text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+                The clinic brings together an experienced dentist and a
+                patient-focused approach, with time to understand your
+                concerns before recommending the next step.
               </p>
 
               <Link
                 href="/doctor"
-                className="group mt-9 inline-flex items-center gap-2 text-sm font-medium text-foreground"
+                className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground"
               >
                 Meet the Doctor
                 <ArrowUpRight
@@ -230,16 +197,12 @@ export default function ClinicPage() {
       </section>
 
       {/* Location */}
-      <section className="border-t border-border bg-background py-24 sm:py-32 lg:py-40">
+      <section className="bg-background py-24 sm:py-28 lg:py-32">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:items-center lg:gap-20">
             <div>
-              <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-                Location
-              </p>
-
-              <h2 className="max-w-md font-(--font-display) text-4xl leading-[0.95] tracking-[-0.02em] text-foreground sm:text-5xl lg:text-6xl">
-                Visit Us in Bopal.
+              <h2 className="max-w-md font-(--font-display) text-4xl leading-none tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                Find us in Bopal.
               </h2>
 
               <div className="mt-8 flex gap-4">
@@ -250,10 +213,12 @@ export default function ClinicPage() {
 
                 <div>
                   <p className="text-sm font-medium text-foreground">
-                    [Complete Clinic Address]
+                    Clinic Address
                   </p>
 
                   <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                    [Complete Clinic Address]
+                    <br />
                     Bopal, Ahmedabad, Gujarat
                   </p>
                 </div>
@@ -261,7 +226,7 @@ export default function ClinicPage() {
 
               <Link
                 href="/contact#location"
-                className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground"
+                className="group mt-7 inline-flex items-center gap-2 text-sm font-medium text-foreground"
               >
                 Get Directions
                 <ArrowUpRight
@@ -272,6 +237,7 @@ export default function ClinicPage() {
             </div>
 
             <div className="relative aspect-video overflow-hidden bg-muted">
+              {/* Replace with the actual Google Maps embed */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
                   <MapPin
@@ -279,12 +245,12 @@ export default function ClinicPage() {
                     strokeWidth={1.5}
                   />
 
-                  <p className="mt-4 text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
-                    Google Maps
+                  <p className="mt-3 text-sm font-medium text-foreground">
+                    Clinic Location
                   </p>
 
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Replace with the clinic&apos;s exact location
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Google Maps will be added here
                   </p>
                 </div>
               </div>
@@ -294,39 +260,7 @@ export default function ClinicPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-border bg-primary py-24 sm:py-32 lg:py-40">
-        <Container>
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.2em] text-primary-foreground/70">
-              Visit the Clinic
-            </p>
-
-            <h2 className="font-(--font-display) text-5xl leading-[0.92] tracking-tight text-primary-foreground sm:text-6xl lg:text-7xl">
-              A Better Dental Visit Begins With the Right Environment.
-            </h2>
-
-            <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-primary-foreground/75 sm:text-lg sm:leading-8">
-              When you&apos;re ready, start with a consultation and take the time
-              to understand your dental care.
-            </p>
-
-            <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <BookConsultationButton className="rounded-md bg-background px-6 py-6 text-foreground hover:bg-background/90" />
-
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 px-5 py-3 text-sm font-medium text-primary-foreground"
-              >
-                Contact the Clinic
-                <ArrowUpRight
-                  className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  strokeWidth={1.5}
-                />
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <FinalCTA />
     </main>
   );
 }
