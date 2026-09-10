@@ -33,7 +33,7 @@ export function FinalCTA() {
           </div>
 
           <p className="mt-8 text-xs text-muted-foreground">
-            Bopal, Ahmedabad · [Clinic Hours]
+            Bopal, Ahmedabad · [9:00 AM - 6:00 PM]
           </p>
         </div>
       </Container>

@@ -23,6 +23,17 @@ export function ClinicPreview() {
               visit.
             </p>
           </div>
+
+          <Link
+            href="/clinic"
+            className="group inline-flex shrink-0 items-center gap-2 text-sm font-medium text-foreground"
+          >
+            Visit the Clinic
+            <ArrowUpRight
+              className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              strokeWidth={1.5}
+            />
+          </Link>
         </div>
 
         {/* Images */}
@@ -81,16 +92,6 @@ export function ClinicPreview() {
             </div>
           </div>
 
-          <Link
-            href="/clinic"
-            className="group inline-flex shrink-0 items-center gap-2 text-sm font-medium text-foreground"
-          >
-            Visit the Clinic
-            <ArrowUpRight
-              className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              strokeWidth={1.5}
-            />
-          </Link>
         </div>
       </Container>
     </section>

@@ -46,7 +46,7 @@ export function FAQPreview() {
     return (
         <section className="bg-background py-24 sm:py-28 lg:py-32">
             <Container>
-                <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20 xl:gap-28">
+                <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 xl:gap-28">
                     {/* Introduction */}
                     <div>
                         <h2 className="max-w-xl font-(--font-display) text-4xl leading-none tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -85,7 +85,6 @@ export function FAQPreview() {
                                 className="group inline-flex items-center gap-2 text-sm font-medium text-foreground"
                             >
                                 View all FAQs
-
                                 <ArrowUpRight
                                     className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                                     strokeWidth={1.5}

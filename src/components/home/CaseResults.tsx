@@ -33,14 +33,14 @@ export function CaseResults() {
             </h2>
           </div>
 
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-col">
             <p className="max-w-lg text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
               Explore selected treatment cases to understand how different dental
               concerns can be approached. Every treatment plan is individual, and
               results vary from patient to patient.
             </p>
 
-            <div className="mt-8 self-end pt-5">
+            <div className="mt-8 self-start border-t border-border pt-5 lg:self-end">
               <Link
                 href="/patient-stories"
                 className="group inline-flex items-center gap-2 text-sm font-medium text-foreground"

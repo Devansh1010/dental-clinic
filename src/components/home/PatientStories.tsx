@@ -32,7 +32,7 @@ export function PatientStories() {
     <section className="bg-muted py-24 sm:py-28 lg:py-32">
       <Container>
         {/* Introduction */}
-        <div className="flex justify-between items-end">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
           <div className="max-w-3xl">
             <h2 className="font-(--font-display) text-4xl leading-none tracking-tight text-foreground sm:text-5xl lg:text-6xl">
               Real experiences from our patients.
@@ -46,13 +46,12 @@ export function PatientStories() {
           </div>
 
           {/* Link */}
-          <div className="mt-8">
+          <div className="shrink-0 lg:pb-1">
             <Link
               href="/patient-stories"
               className="group inline-flex items-center gap-2 text-sm font-medium text-foreground"
             >
               Read patient stories
-
               <ArrowUpRight
                 className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 strokeWidth={1.5}
