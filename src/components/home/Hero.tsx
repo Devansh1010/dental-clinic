@@ -70,7 +70,7 @@ export function Hero() {
 
           {/* Doctor Image */}
           <div className="flex justify-start lg:justify-end">
-            <div className="relative aspect-5/6 w-full max-w-md overflow-hidden bg-muted lg:max-w-sm xl:max-w-md">
+            <div className="relative aspect-5/6 w-full max-w-md overflow-hidden rounded-tl-[4rem] rounded-br-[4rem] bg-muted lg:max-w-sm xl:max-w-md">
               <Image
                 src="/images/doctor/hero.jpg"
                 alt="Dr. [Doctor Name] providing dental care"

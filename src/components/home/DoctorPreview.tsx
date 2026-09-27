@@ -11,7 +11,7 @@ export function DoctorPreview() {
                 <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 xl:gap-28">
                     {/* Doctor Image */}
                     <div className="order-2 flex justify-start lg:order-1">
-                        <div className="relative aspect-3/4 w-full max-w-sm overflow-hidden bg-muted">
+                        <div className="relative aspect-3/4 w-full max-w-sm overflow-hidden rounded-tl-[3rem] rounded-br-[3rem] border border-border bg-muted">
                             <Image
                                 src="/images/doctor/doctor.jpg"
                                 alt="Dr. [Doctor Name]"
